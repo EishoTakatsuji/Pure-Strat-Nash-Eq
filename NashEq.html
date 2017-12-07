@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="NashEqStyle.css">
+	</head>
+	<body>
+		<table class = "matrix">
+		  <tr>
+			<td></td>
+			<td>A</td>
+			<td>B</td> 
+		  </tr>
+		  <tr>
+			<td>C</td>
+			<td id="cell1"><form id="payoffs1"><input type="text"></form></td>
+			<td id="cell2"><form id="payoffs2"><input type="text"></form></td>
+		  </tr>
+		  <tr>
+			<td>D</td>
+			<td id="cell3"><form id="payoffs3"><input type="text"></form></td>
+			<td id="cell4"><form id="payoffs4"><input type="text"></form></td>
+		  </tr>
+		</table>
+
+		<br>
+		
+		<button onclick="findNash()">Find Nash Equilibrium</button>
+
+		<p id="demo"></p>
+
+		<script>
+			function findNash(){
+				var Nash = [];
+				var p1 = document.getElementById("payoffs1").elements[0].value.split(',');
+				var p2 = document.getElementById("payoffs2").elements[0].value.split(',');
+				var p3 = document.getElementById("payoffs3").elements[0].value.split(',');
+				var p4 = document.getElementById("payoffs4").elements[0].value.split(',');
+				if(Number(p1[0]) >= Number(p3[0]) && Number(p1[1]) >= Number(p2[1])){
+					Nash.push("(A,C)");
+				}
+				if(Number(p2[0]) >= Number(p4[0]) && Number(p2[1]) >= Number(p1[1])){
+					Nash.push("(B,C)");
+				}
+				if(Number(p3[0]) >= Number(p1[0]) && Number(p3[1]) >= Number(p4[1])){
+					Nash.push("(A,D)");
+				}
+				if(Number(p4[0]) >= Number(p2[0]) && Number(p4[1]) >= Number(p3[1])){
+					Nash.push("(B,D)");
+				}
+				document.getElementById("demo").innerHTML = Nash;
+			}
+		</script>
+	</body>
+</html>

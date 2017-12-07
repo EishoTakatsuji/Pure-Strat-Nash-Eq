@@ -1,0 +1,20 @@
+.matrix{=
+	margin: 50px;
+	left: 30px;
+}
+
+#cell1{
+	border: 2px solid black;
+}
+
+#cell2{
+	border: 2px solid black;
+}
+
+#cell3{
+	border: 2px solid black;
+}
+
+#cell4{
+	border: 2px solid black;
+}
